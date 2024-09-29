@@ -1,0 +1,25 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity SR_LATCH is
+port
+(
+S ,R : IN STD_LOGIC;
+Q    : OUT STD_LOGIC
+
+);
+
+end RS_LATCH
+
+architecture Behavioral of SR_LATCH is
+
+signal notQ : std_logic;
+begin
+
+Q <= R nor notQ;
+notQ<= S nor Q;
+
+
+
+
+end behavioral;

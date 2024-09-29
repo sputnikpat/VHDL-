@@ -1,0 +1,39 @@
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+use IEEE.NUMERIC_STD.ALL;
+
+
+entity ALU is
+port
+(
+A,B : in STD_LOGIC_VECTOR(7 DOWNTO 0);
+OP  : in STD_LOGIC_VECTOR(2 DOWNTO 0);
+RESULT: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+CarryOut : out std_logic
+
+);
+
+end ALU
+
+architecture Behavioral of ALU is
+signal ALU_RESULT : STD_LOGIC_VECTOR(7 DOWNTO 0);
+
+begin
+process (A,B,OP)
+begin
+case (op) is
+when "000" => --ADDITION
+ALU_RESULT <= A+B;
+
+when "001" => -- SUBTRACTION
+ALU_RESULT <= A-B;
+
+
+when "010" => --MULTI
+ALU_RESULT <= std_logic_vector(to_integer(A) * to_integer(B));
+end case;
+end process;
+
+end Behavioral;
